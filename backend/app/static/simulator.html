@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulator Chatbot</title>
+<style>
+  :root {
+    --bg: #eef1f5; --panel: #fff; --text: #1b2430; --muted: #6b7686; --line: #dde3ea;
+    --me: #2563eb; --me-text: #fff; --bot: #fff; --accent: #2563eb; --active: #e8effd;
+    --ok: #138a5b; --warn: #b7791f; --bad: #c0392b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11151b; --panel: #1a2029; --text: #e7ebf0; --muted: #8b97a7; --line: #2a3340; --bot: #232b36; --accent: #5b8def; --me: #2f5fd0; --active: #233250; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, "Segoe UI", sans-serif; }
+  .app { display: grid; grid-template-columns: 250px minmax(0, 1fr) 340px; gap: 16px; max-width: 1480px; margin: 0 auto; padding: 16px; height: 100vh; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; display: flex; flex-direction: column; min-height: 0; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  header h1 { font-size: 16px; margin: 0; }
+  header small { color: var(--muted); }
+  .hdr-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+  select { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 8px; padding: 6px 8px; cursor: pointer; max-width: 230px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 8px; padding: 6px 12px; }
+  button:hover { border-color: var(--accent); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button:disabled { opacity: .5; cursor: default; }
+
+  /* daftar percakapan */
+  nav .nav-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  nav h2 { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  #convs { list-style: none; margin: 0; padding: 6px; overflow-y: auto; flex: 1; }
+  #convs li button { width: 100%; text-align: left; border: 1px solid transparent; border-radius: 10px; padding: 8px 10px; background: none; display: block; }
+  #convs li button:hover { border-color: var(--line); }
+  #convs li button[aria-current="true"] { background: var(--active); border-color: var(--accent); }
+  #convs .t { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #convs .m { display: block; font-size: 12px; color: var(--muted); }
+
+  #log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .msg { max-width: 78%; padding: 8px 12px; border-radius: 12px; white-space: pre-wrap; word-wrap: break-word; border: 1px solid var(--line); background: var(--bot); }
+  .msg.me { align-self: flex-end; background: var(--me); color: var(--me-text); border-color: var(--me); }
+  .msg .meta { display: block; font-size: 11px; opacity: .7; margin-top: 4px; }
+  .msg.typing { color: var(--muted); font-style: italic; }
+  .msg.bot[data-id] { cursor: pointer; }
+  .msg.bot[data-id]:hover { border-color: var(--accent); }
+  .msg.selected { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .sec-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .sec-head h2 { margin: 0; }
+  .link { font-size: 12px; padding: 2px 8px; }
+  .q { font-size: 13px; margin: 6px 0; padding: 6px 8px; border-left: 3px solid var(--accent); background: var(--bg); border-radius: 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 8px; }
+  .chips button { font-size: 13px; padding: 4px 10px; border-radius: 999px; color: var(--muted); }
+  form { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }
+  input[type=text] { flex: 1; font: inherit; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
+  aside { overflow-y: auto; }
+  aside section { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  aside section:last-child { border-bottom: 0; }
+  aside h2 { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .src { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; }
+  .src .top { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; font-size: 13px; }
+  .src .score { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .src .sec { color: var(--muted); font-size: 13px; }
+  .src pre { margin: 6px 0 0; font: 12px/1.45 ui-monospace, Consolas, monospace; white-space: pre-wrap; color: var(--muted); max-height: 120px; overflow: auto; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; border: 1px solid currentColor; }
+  .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 0; font-size: 13px; }
+  dt { color: var(--muted); } dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .empty { color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 1180px) {
+    .app { grid-template-columns: 220px minmax(0, 1fr); height: auto; min-height: 100vh; }
+    aside { grid-column: 1 / -1; }
+    main { height: calc(100vh - 32px); }
+  }
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; }
+    nav { max-height: 34vh; }
+    main { height: 80vh; }
+    header { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="card" aria-label="Daftar percakapan">
+    <div class="nav-head">
+      <h2>Percakapan</h2>
+      <button id="reset" type="button" title="Mulai percakapan baru (percakapan lama tetap tersimpan)">+ Baru</button>
+    </div>
+    <ul id="convs"></ul>
+  </nav>
+
+  <main class="card">
+    <header>
+      <div><h1>Simulator Chatbot AutoAudit</h1><small id="conv-label">Percakapan baru</small></div>
+      <div class="hdr-actions">
+        <label class="sr" for="method">Metode pencarian</label>
+        <select id="method" title="Metode pencarian dokumen untuk pesan berikutnya"></select>
+        <label class="sr" for="vdb">Database vektor</label>
+        <select id="vdb" title="Database vektor untuk pencarian semantic/hybrid"></select>
+        <label class="sr" for="llm">Model LLM</label>
+        <select id="llm" title="Model LLM untuk pesan berikutnya"></select>
+      </div>
+    </header>
+    <div id="log" aria-live="polite"></div>
+    <div class="chips" id="chips"></div>
+    <form id="form">
+      <input id="text" type="text" placeholder="Ketik pesan sebagai calon pelanggan..." autocomplete="off" maxlength="2000" autofocus>
+      <button class="primary" id="send" type="submit">Kirim</button>
+    </form>
+  </main>
+
+  <aside class="card">
+    <section>
+      <div class="sec-head"><h2 id="info-title">Status sistem saat ini</h2>
+        <button id="info-back" class="link" type="button" hidden>Status saat ini</button></div>
+      <dl id="info"><dt>Memuat...</dt><dd></dd></dl>
+    </section>
+    <section>
+      <h2 id="result-title">Hasil jawaban terakhir</h2>
+      <div id="result" class="empty">Belum ada pesan.</div>
+    </section>
+    <section>
+      <h2>Dokumen yang dipakai bot</h2>
+      <div id="sources" class="empty">Belum ada.</div>
+    </section>
+  </aside>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const SAMPLE = [
+  "Harga paket 12 bulan berapa?",
+  "Bedanya paket Reguler sama Super apa?",
+  "Paket apa yang cocok untuk integrasi API?",
+  "Bayarnya gimana?",
+  "Data chat kami dipakai buat training AI gak?",
+  "Ada aplikasi untuk iPhone?"
+];
+
+// --- penyimpanan pilihan di browser (aman bila localStorage diblokir) ---
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} },
+};
+// Percakapan baru dibuat dengan id sesi; percakapan dari daftar dibuka dengan lead_id (= baris leads di database).
+function newSid() {
+  const id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()).slice(0, 36);
+  store.set("sid", id);
+  return id;
+}
+let sid = store.get("sid") || newSid();
+let currentLead = store.get("lead") ? Number(store.get("lead")) : null;
+let method = store.get("method");
+let llmModel = store.get("llm");
+let vectorDb = store.get("vdb");
+const VDB_LABEL = { pgvector: "pgvector", chroma: "ChromaDB", surrealdb: "SurrealDB" };
+const VDB_STATE = { ready: "", empty: " — belum disinkron", offline: " — server mati" };
+let llmModels = [];
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function clock(d) { return (d || new Date()).toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }); }
+function when(iso) {
+  const d = new Date(iso), now = new Date();
+  return d.toDateString() === now.toDateString() ? clock(d) : d.toLocaleDateString("id-ID", { day: "numeric", month: "short" }) + " " + clock(d);
+}
+
+// Tampilkan format WhatsApp seperti di HP: *tebal*, _miring_, ~coret~, ```monospace```.
+// Teks di-escape dulu, baru tag aman (strong/em/s/code) yang disisipkan, jadi isi pesan tidak bisa menyuntik HTML.
+function waFormat(text) {
+  const esc = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const wrap = (s, mark, tag) => s.replace(
+    new RegExp("(^|[\\s(\\[])" + mark + "(\\S(?:[^\\n]*?\\S)?)" + mark + "(?=[\\s.,!?:;)\\]]|$)", "gm"),
+    (_, pre, inner) => pre + "<" + tag + ">" + inner + "</" + tag + ">");
+  let h = esc.replace(/```([\s\S]+?)```/g, "<code>$1</code>");
+  h = wrap(h, "\\*", "strong");
+  h = wrap(h, "_", "em");
+  h = wrap(h, "~", "s");
+  return h;
+}
+
+function addMsg(text, who, metaText, id) {
+  const m = el("div", "msg " + who);
+  m.innerHTML = waFormat(text);
+  if (metaText) m.appendChild(el("span", "meta", metaText));
+  if (id) {  // balasan bot: klik untuk melihat status yang dipakai saat menjawab
+    m.dataset.id = id; m.title = "Klik untuk melihat status sistem saat bot menjawab pesan ini";
+    m.addEventListener("click", () => showDetail(id));
+  }
+  $("log").appendChild(m);
+  $("log").scrollTop = $("log").scrollHeight;
+  return m;
+}
+
+const MODE = { llm: ["Dijawab LLM", "ok"], retrieval_only: ["Tanpa LLM (LLM tidak tersedia)", "warn"], no_context: ["Tidak ada konteks, eskalasi ke sales", "bad"], smalltalk: ["Sapaan, tanpa retrieval", "ok"], taken_over: ["Diambil alih sales, bot diam", "warn"] };
+const LLM_STATE = { ready: ["siap", "ok"], cooldown: ["jeda (baru gagal)", "warn"], offline: ["Ollama mati", "bad"], model_missing: ["model belum diunduh", "warn"], no_key: ["key Groq kosong", "bad"] };
+const shortModel = (id) => { const [p, ...n] = id.split(":"); return (p === "groq" ? "Groq · " : "Ollama · ") + n.join(":").split("/").pop() + (p === "ollama" ? " (lokal)" : ""); };
+
+function resetPanels() {
+  $("sources").className = "empty"; $("sources").textContent = "Belum ada.";
+  $("result").className = "empty"; $("result").textContent = "Belum ada pesan.";
+}
+
+// Detail satu balasan bot. Dipakai untuk balasan baru (dari respons /chat) dan balasan lama (dari database).
+function liveDetail(r, question) {
+  return { message_id: r.message_id, has_detail: true, time: new Date().toISOString(), question, mode: r.mode,
+    escalate: r.escalate, retriever: r.retriever, embedding_model: r.embedding_model, vector_db: r.vector_db, llm_model: r.llm_model,
+    search_query: r.search_query, latency_ms: r.latency_ms, note: r.note,
+    sources: r.sources.map((s, i) => ({ rank: i + 1, score: s.score, similarity: s.similarity, doc: s.doc, section: s.section, text: s.text })) };
+}
+
+async function showDetail(id) {
+  try {
+    const res = await fetch("/simulator/messages/" + id);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    renderDetail(await res.json());
+  } catch (e) { $("result").className = "empty"; $("result").textContent = "Gagal memuat detail: " + e.message; }
+}
+
+function renderDetail(d) {
+  document.querySelectorAll("#log .msg.selected").forEach((m) => m.classList.remove("selected"));
+  const bubble = d.message_id && document.querySelector('#log .msg[data-id="' + d.message_id + '"]');
+  if (bubble) bubble.classList.add("selected");
+  const t = d.time ? when(d.time) : "";
+
+  // Panel status: konfigurasi yang dipakai bot saat menjawab pesan ini
+  $("info-title").textContent = "Status saat menjawab" + (t ? " (" + t + ")" : "");
+  $("info-back").hidden = false;
+  const info = $("info"); info.replaceChildren();
+  if (!d.has_detail) { info.appendChild(el("dt", null, "Tidak ada data status untuk balasan ini.")); return; }
+  const [label, cls] = MODE[d.mode] || [d.mode, ""];
+  const rows = [
+    ["Metode pencarian", (d.retriever || "-").toUpperCase()],
+    ["Model embedding", d.embedding_model ? d.embedding_model.split("/").pop() : (d.retriever === "bm25" || !d.retriever ? "-" : "tidak tercatat")],
+    ["Database vektor", d.vector_db ? VDB_LABEL[d.vector_db] || d.vector_db : (d.retriever === "bm25" || !d.retriever ? "-" : "tidak tercatat")],
+    ["Model LLM", d.llm_model ? shortModel(d.llm_model) : "tidak dipanggil"],
+    ["Chunk dipakai", String(d.sources.length)],
+    ["Eskalasi ke sales", d.escalate ? "ya" : "tidak"],
+  ];
+  rows.forEach(([k, v]) => { info.appendChild(el("dt", null, k)); info.appendChild(el("dd", null, v)); });
+  info.appendChild(el("dt", null, "Mode jawaban")); const dd = el("dd"); dd.appendChild(el("span", "badge " + cls, label)); info.appendChild(dd);
+
+  // Panel hasil: pertanyaan, hasil tulis ulang, waktu proses
+  $("result-title").textContent = "Proses jawaban";
+  const box = $("result"); box.className = ""; box.replaceChildren();
+  if (d.question) box.appendChild(el("div", "q", "Pelanggan: " + d.question));
+  if (d.search_query) box.appendChild(el("div", "empty", "Dicari dengan (ditulis ulang): " + d.search_query));
+  if (d.note) box.appendChild(el("div", "empty", d.note));
+  const dl = el("dl"); dl.style.marginTop = "8px";
+  const lat = d.latency_ms || {}, lrows = [];
+  if (lat.rewrite != null) lrows.push(["Tulis ulang", lat.rewrite + " ms"]);
+  if (lat.retrieval != null) lrows.push(["Retrieval", lat.retrieval + " ms"]);
+  if (lat.llm != null) lrows.push(["LLM", lat.llm + " ms"]);
+  if (lat.total != null) lrows.push(["Total", lat.total + " ms"]);
+  lrows.forEach(([k, v]) => { dl.appendChild(el("dt", null, k)); dl.appendChild(el("dd", null, v)); });
+  box.appendChild(dl);
+
+  // Panel sumber
+  const sb = $("sources"); sb.className = ""; sb.replaceChildren();
+  if (!d.sources.length) { sb.className = "empty"; sb.textContent = "Tidak ada chunk yang dipakai."; return; }
+  d.sources.forEach((s) => {
+    const card = el("div", "src");
+    const top = el("div", "top"); top.appendChild(el("span", null, s.rank + ". " + s.doc));
+    const lab = d.retriever === "hybrid" ? "RRF " + s.score.toFixed(4) + (s.similarity != null ? " · cos " + s.similarity.toFixed(2) : "")
+      : d.retriever === "semantic" ? "cos " + s.score.toFixed(2) : "BM25 " + s.score.toFixed(2);
+    top.appendChild(el("span", "score", lab));
+    card.appendChild(top); card.appendChild(el("div", "sec", s.section)); card.appendChild(el("pre", null, s.text));
+    sb.appendChild(card);
+  });
+}
+
+function backToCurrent() {
+  document.querySelectorAll("#log .msg.selected").forEach((m) => m.classList.remove("selected"));
+  $("info-title").textContent = "Status sistem saat ini"; $("info-back").hidden = true;
+  $("result-title").textContent = "Hasil jawaban terakhir";
+  resetPanels(); loadInfo();
+}
+
+async function loadInfo() {
+  const showing = !$("info-back").hidden;  // sedang menampilkan status balasan terpilih
+  const box = $("info"); if (!showing) box.replaceChildren();
+  try {
+    const i = await (await fetch("/simulator/info")).json();
+    // dropdown metode pencarian
+    const ms = $("method");
+    if (!ms.options.length) {
+      const labels = { semantic: "Semantic (embedding)", hybrid: "Hybrid (BM25 + semantic)", bm25: "BM25 (kata kunci)" };
+      i.methods.forEach((m) => { const o = el("option", null, labels[m] || m); o.value = m; ms.appendChild(o); });
+      if (!method || !i.methods.includes(method)) method = i.retriever;
+      ms.value = method;
+    }
+    // dropdown database vektor (tidak dipakai BM25)
+    const vs = $("vdb"); vs.replaceChildren();
+    if (!vectorDb || !i.vector_dbs.some((d) => d.id === vectorDb)) vectorDb = i.vector_db_default;
+    i.vector_dbs.forEach((d) => {
+      const o = el("option", null, VDB_LABEL[d.id] + (d.id === i.vector_db_default ? " (default)" : "") + (VDB_STATE[d.state] ?? ""));
+      o.value = d.id; o.disabled = d.state !== "ready"; vs.appendChild(o);
+    });
+    vs.value = vectorDb; vs.disabled = method === "bm25";
+    // dropdown model LLM (diisi ulang tiap kali agar status terbaru tampil)
+    llmModels = i.llm_models;
+    if (!llmModel || !llmModels.some((m) => m.id === llmModel)) llmModel = i.llm_default;
+    const ls = $("llm"); ls.replaceChildren();
+    llmModels.forEach((m) => {
+      const st = m.state === "ready" ? "" : " — " + (LLM_STATE[m.state] || [m.state])[0];
+      const o = el("option", null, shortModel(m.id) + (m.id === i.llm_default ? " (default)" : "") + st);
+      o.value = m.id; o.disabled = ["offline", "no_key", "model_missing"].includes(m.state);
+      ls.appendChild(o);
+    });
+    ls.value = llmModel;
+    if (showing) return;  // dropdown sudah diperbarui; panel tetap menampilkan balasan terpilih
+    const cur = llmModels.find((m) => m.id === llmModel) || { state: "ready" };
+    const [stText, stCls] = LLM_STATE[cur.state] || [cur.state, ""];
+    const rows = [
+      ["Metode pencarian", method.toUpperCase()],
+      ["Dokumen / chunk", i.docs.length + " / " + i.chunks],
+      ["Sumber KB", i.data_source],
+      ["Chunk teks", "per heading"],
+      ["Chunk CSV / overlap", i.chunk_rows + " baris / " + i.chunk_overlap],
+      ["Top-k", String(i.top_k)],
+      ["Ambang", (method === "bm25" ? i.min_score : i.min_similarity) > 0 ? (method === "bm25" ? "BM25 ≥ " + i.min_score : "cosine ≥ " + i.min_similarity) : "mati (LLM memutuskan)"],
+      ["Model embedding", method === "bm25" ? "-" : i.embedding_model.split("/").pop()],
+      ["Database vektor", method === "bm25" ? "-" : VDB_LABEL[vectorDb] + " (" + ((i.vector_dbs.find((d) => d.id === vectorDb) || {}).vectors ?? 0) + " vektor)"],
+      ["Model LLM", shortModel(llmModel)],
+    ];
+    rows.forEach(([k, v]) => { box.appendChild(el("dt", null, k)); box.appendChild(el("dd", null, v)); });
+    box.appendChild(el("dt", null, "Status LLM")); const dd = el("dd"); dd.appendChild(el("span", "badge " + stCls, stText)); box.appendChild(dd);
+  } catch (e) { box.appendChild(el("dt", null, "Gagal memuat info")); }
+}
+
+// --- daftar percakapan ---
+async function loadConversations() {
+  const ul = $("convs");
+  try {
+    const { conversations } = await (await fetch("/simulator/conversations")).json();
+    ul.replaceChildren();
+    if (!conversations.length) { ul.appendChild(el("li", "empty", "Belum ada percakapan.")); return; }
+    conversations.forEach((c) => {
+      const li = el("li"); const b = el("button"); b.type = "button";
+      b.appendChild(el("span", "t", c.title));
+      b.appendChild(el("span", "m", "#" + c.lead_id + " · " + c.messages + " pesan · " + when(c.last_message_at)));
+      if (c.lead_id === currentLead) b.setAttribute("aria-current", "true");
+      b.addEventListener("click", () => openConversation(c.lead_id));
+      li.appendChild(b); ul.appendChild(li);
+    });
+  } catch (e) { ul.replaceChildren(el("li", "empty", "Gagal memuat daftar.")); }
+}
+
+function renderHistory(h) {
+  $("log").replaceChildren();
+  h.messages.forEach((m) => {
+    const t = when(m.time);
+    if (m.sender === "customer") addMsg(m.text, "me", t + (m.answered === false ? " · tidak ada balasan (proses terputus)" : ""));
+    else addMsg(m.text, "bot", t + (m.sender === "bot" ? " · dijawab bot" : " · sales"), m.sender === "bot" ? m.id : null);
+  });
+  resetPanels();
+  if (h.messages.length) $("result").textContent = "Riwayat dimuat dari database (lead #" + h.lead_id + ", " + h.messages.length + " pesan).";
+  $("conv-label").textContent = h.lead_id ? "Percakapan #" + h.lead_id : "Percakapan baru";
+}
+
+async function openConversation(leadId) {
+  if ($("send").disabled) return;  // jangan pindah saat bot sedang menjawab
+  try {
+    const h = await (await fetch("/simulator/history?lead_id=" + leadId)).json();
+    if (!h.lead_id) { loadConversations(); return; }
+    currentLead = h.lead_id; store.set("lead", String(currentLead));
+    renderHistory(h);
+    loadConversations();
+    $("text").focus();
+  } catch (e) { addMsg("Gagal membuka percakapan: " + e.message, "bot"); }
+}
+
+async function send(text) {
+  text = text.trim(); if (!text) return;
+  addMsg(text, "me", clock());
+  $("text").value = ""; setBusy(true);
+  const typing = addMsg("Bot sedang mengetik...", "bot typing");
+  try {
+    const res = await fetch("/simulator/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session_id: sid, lead_id: currentLead, text, method, llm_model: llmModel,
+        vector_db: method === "bm25" ? null : vectorDb }) });
+    if (!res.ok) throw new Error("HTTP " + res.status + " " + ((await res.json().catch(() => ({}))).detail || ""));
+    const r = await res.json();
+    typing.remove();
+    addMsg(r.text, "bot", clock() + " · dijawab bot", r.message_id);
+    renderDetail(liveDetail(r, text));
+    if (r.lead_id && r.lead_id !== currentLead) { currentLead = r.lead_id; store.set("lead", String(currentLead)); }
+    $("conv-label").textContent = "Percakapan #" + currentLead;
+    loadConversations();
+    if (r.mode === "retrieval_only") loadInfo();  // status model mungkin berubah (mis. kuota habis)
+  } catch (e) {
+    typing.remove(); addMsg("Gagal menghubungi backend: " + e.message, "bot");
+  } finally { setBusy(false); $("text").focus(); }
+}
+
+// Cegah pesan kedua terkirim sebelum jawaban pertama selesai (urutan balasan jadi tertukar).
+function setBusy(busy) {
+  $("send").disabled = busy;
+  document.querySelectorAll("#chips button").forEach((b) => { b.disabled = busy; });
+}
+
+$("form").addEventListener("submit", (e) => { e.preventDefault(); if (!$("send").disabled) send($("text").value); });
+$("reset").addEventListener("click", async () => {
+  if ($("send").disabled) return;
+  await fetch("/simulator/reset", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ session_id: sid }) });
+  sid = newSid(); currentLead = null; store.set("lead", null);  // percakapan lama tetap tersimpan di database
+  $("log").replaceChildren(); resetPanels(); $("conv-label").textContent = "Percakapan baru";
+  loadConversations(); $("text").focus();
+});
+$("info-back").addEventListener("click", backToCurrent);
+$("method").addEventListener("change", (e) => { method = e.target.value; store.set("method", method); loadInfo(); });
+$("llm").addEventListener("change", (e) => { llmModel = e.target.value; store.set("llm", llmModel); loadInfo(); });
+$("vdb").addEventListener("change", (e) => { vectorDb = e.target.value; store.set("vdb", vectorDb); loadInfo(); });
+SAMPLE.forEach((s) => { const b = el("button", null, s); b.type = "button"; b.addEventListener("click", () => send(s)); $("chips").appendChild(b); });
+
+// Saat dibuka: lanjutkan percakapan terakhir (lead tersimpan), atau cek apakah sesi ini sudah punya percakapan.
+async function init() {
+  loadInfo();
+  try {
+    const url = currentLead ? "/simulator/history?lead_id=" + currentLead : "/simulator/history?session_id=" + encodeURIComponent(sid);
+    const h = await (await fetch(url)).json();
+    if (h.lead_id) { currentLead = h.lead_id; store.set("lead", String(currentLead)); renderHistory(h); }
+    else { currentLead = null; store.set("lead", null); }
+  } catch (e) { /* riwayat gagal dimuat: halaman tetap bisa dipakai */ }
+  loadConversations();
+}
+init();
+</script>
+</body>
+</html>

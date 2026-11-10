@@ -1,0 +1,31 @@
+# OpenWA (rmyndharis/OpenWA) — gateway WhatsApp tidak resmi untuk prototipe PA.
+# Jalankan:  docker compose up -d
+# Dashboard: http://localhost:2785   (login pakai API_MASTER_KEY di file .env)
+services:
+  openwa-api:
+    image: ghcr.io/rmyndharis/openwa:latest
+    container_name: openwa-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: "2785"
+      TZ: Asia/Jakarta
+      # Baileys: tanpa browser, jauh lebih ringan dari whatsapp-web.js
+      ENGINE_TYPE: baileys
+      DATABASE_TYPE: sqlite
+      DATABASE_SYNCHRONIZE: "false"
+      STORAGE_TYPE: local
+      # Webhook dikirim ke backend FastAPI di laptop (host), bukan ke internet.
+      # Proteksi SSRF tetap aktif, host.docker.internal diizinkan secara eksplisit.
+      WEBHOOK_SSRF_PROTECT: "true"
+      SSRF_ALLOWED_HOSTS: host.docker.internal
+      SIMULATE_TYPING: "true"
+    ports:
+      # hanya bisa diakses dari laptop sendiri
+      - "127.0.0.1:2785:2785"
+    volumes:
+      # sesi login WhatsApp, database, dan media disimpan di sini
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

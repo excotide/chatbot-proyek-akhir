@@ -1,0 +1,14 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+httpx==0.28.1
+pydantic-settings==2.7.1
+PySastrawi==1.2.0
+SQLAlchemy==2.0.36
+alembic==1.14.0
+psycopg[binary]==3.2.3
+pgvector==0.3.6
+# Embedding (CPU). Pasang torch versi CPU lebih dulu agar tidak mengunduh versi CUDA yang besar:
+#   .venv\Scripts\python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+torch==2.6.0
+sentence-transformers==3.3.1
+transformers==4.57.6

@@ -1,0 +1,281 @@
+konfigurasi,id,jenis,rank,gate,ms,top1
+bm25,P01,persis,1,14.5369,0.1,daftar-harga.csv :: Baris 5-9
+bm25,P02,persis,1,9.6757,0.0,daftar-harga.csv :: Baris 1-5
+bm25,P03,persis,1,16.2685,0.0,daftar-harga.csv :: Baris 5-9
+bm25,P04,persis,1,17.0352,0.0,daftar-harga.csv :: Baris 17-21
+bm25,P05,persis,3,5.7932,0.0,daftar-harga.csv :: Baris 13-17
+bm25,P06,persis,1,14.2633,0.0,daftar-harga.csv :: Baris 9-13
+bm25,P07,persis,1,7.4504,0.0,fitur-autoaudit.md :: Automatic Notification
+bm25,P08,persis,1,5.1975,0.0,platform-dan-koneksi.md :: WhatsApp Coexistence (Meta)
+bm25,P09,persis,1,10.7705,0.0,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+bm25,P10,persis,2,13.4079,0.0,fitur-autoaudit.md :: WhatsApp Business Manager
+bm25,F01,parafrase,,3.9611,0.1,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+bm25,F02,parafrase,1,11.3113,0.1,katalog-produk.csv :: Baris 1-5
+bm25,F03,parafrase,1,9.4554,0.0,keamanan-dan-ketentuan.md :: Cara pembayaran
+bm25,F04,parafrase,1,12.6786,0.0,keamanan-dan-ketentuan.md :: Perlindungan data dan NDA
+bm25,F05,parafrase,1,14.6285,0.0,keamanan-dan-ketentuan.md :: Kontrol akses data
+bm25,F06,parafrase,,5.1704,0.0,profil-autoaudit.md :: Fungsi utama AutoAudit
+bm25,F07,parafrase,1,10.6139,0.1,fitur-autoaudit.md :: Automatic Report
+bm25,F08,parafrase,1,8.6181,0.1,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+bm25,F09,parafrase,3,5.2202,0.0,keamanan-dan-ketentuan.md :: Perlindungan data dan NDA
+bm25,F10,parafrase,2,6.2480,0.1,profil-autoaudit.md :: Tentang AutoAudit
+bm25,F11,parafrase,1,5.7063,0.1,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+bm25,F12,parafrase,1,9.2303,0.0,profil-autoaudit.md :: Fungsi utama AutoAudit
+bm25,S01,santai,5,2.3860,0.1,daftar-harga.csv :: Baris 21-23
+bm25,S02,santai,1,11.4490,0.0,daftar-harga.csv :: Baris 5-9
+bm25,S03,santai,1,8.4588,0.1,keamanan-dan-ketentuan.md :: Cara pembayaran
+bm25,S04,santai,1,4.8672,0.0,keamanan-dan-ketentuan.md :: Kontrol akses data
+bm25,S05,santai,1,2.4778,0.1,platform-dan-koneksi.md :: Telegram
+bm25,S06,santai,1,6.2447,0.0,katalog-produk.csv :: Baris 13-15
+bm25,S07,santai,1,8.1462,0.0,fitur-autoaudit.md :: AI Chatbot untuk customer service
+bm25,S08,santai,1,4.3499,0.0,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+bm25,S09,santai,1,12.2385,0.1,daftar-harga.csv :: Baris 17-21
+bm25,S10,santai,1,9.0911,0.4,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+bm25,L01,luar_kb,,5.0143,0.1,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+bm25,L02,luar_kb,,3.8761,0.0,profil-autoaudit.md :: Manfaat 1: Kinerja tim jadi transparan
+bm25,L03,luar_kb,,2.3680,0.2,daftar-harga.csv :: Baris 1-5
+bm25,L04,luar_kb,,3.2821,0.0,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+bm25,L05,luar_kb,,3.8369,0.3,fitur-autoaudit.md :: Automatic Report
+bm25,L06,luar_kb,,15.3313,0.0,keamanan-dan-ketentuan.md :: Cara pembayaran
+bm25,L07,luar_kb,,3.9697,0.0,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+bm25,L08,luar_kb,,4.1337,0.2,daftar-harga.csv :: Baris 17-21
+semantic · all-indo-e5-small-v4,P01,persis,,0.4780,23.8,fitur-autoaudit.md :: AI Chatbot untuk customer service
+semantic · all-indo-e5-small-v4,P02,persis,2,0.4120,22.2,daftar-harga.csv :: Baris 13-17
+semantic · all-indo-e5-small-v4,P03,persis,1,0.5827,22.6,daftar-harga.csv :: Baris 5-9
+semantic · all-indo-e5-small-v4,P04,persis,1,0.5139,21.8,daftar-harga.csv :: Baris 17-21
+semantic · all-indo-e5-small-v4,P05,persis,4,0.3694,22.6,katalog-produk.csv :: Baris 13-15
+semantic · all-indo-e5-small-v4,P06,persis,4,0.5640,22.4,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+semantic · all-indo-e5-small-v4,P07,persis,1,0.6335,21.6,fitur-autoaudit.md :: Automatic Notification
+semantic · all-indo-e5-small-v4,P08,persis,1,0.6669,22.3,platform-dan-koneksi.md :: WhatsApp Coexistence (Meta)
+semantic · all-indo-e5-small-v4,P09,persis,1,0.7038,24.9,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+semantic · all-indo-e5-small-v4,P10,persis,,0.6830,23.7,fitur-autoaudit.md :: WhatsApp Business Manager
+semantic · all-indo-e5-small-v4,F01,parafrase,3,0.2990,25.3,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+semantic · all-indo-e5-small-v4,F02,parafrase,2,0.3240,23.8,katalog-produk.csv :: Baris 5-9
+semantic · all-indo-e5-small-v4,F03,parafrase,1,0.5270,21.9,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · all-indo-e5-small-v4,F04,parafrase,3,0.5032,23.6,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · all-indo-e5-small-v4,F05,parafrase,2,0.6665,22.1,keamanan-dan-ketentuan.md :: Standar keamanan
+semantic · all-indo-e5-small-v4,F06,parafrase,5,0.7107,21.7,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · all-indo-e5-small-v4,F07,parafrase,1,0.6275,22.6,fitur-autoaudit.md :: Automatic Report
+semantic · all-indo-e5-small-v4,F08,parafrase,1,0.6522,23.3,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+semantic · all-indo-e5-small-v4,F09,parafrase,1,0.7443,22.1,profil-autoaudit.md :: Klien AutoAudit
+semantic · all-indo-e5-small-v4,F10,parafrase,1,0.6111,29.9,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+semantic · all-indo-e5-small-v4,F11,parafrase,1,0.4827,24.5,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+semantic · all-indo-e5-small-v4,F12,parafrase,2,0.4126,23.4,platform-dan-koneksi.md :: Telegram
+semantic · all-indo-e5-small-v4,S01,santai,2,0.3625,23.2,daftar-harga.csv :: Baris 17-21
+semantic · all-indo-e5-small-v4,S02,santai,2,0.4398,21.1,daftar-harga.csv :: Baris 1-5
+semantic · all-indo-e5-small-v4,S03,santai,1,0.2976,22.8,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · all-indo-e5-small-v4,S04,santai,,0.3935,29.2,platform-dan-koneksi.md :: WhatsApp Business API (Meta)
+semantic · all-indo-e5-small-v4,S05,santai,2,0.3769,26.4,platform-dan-koneksi.md :: Gmail by Google
+semantic · all-indo-e5-small-v4,S06,santai,2,0.3593,24.6,fitur-autoaudit.md :: Official WhatsApp Broadcast
+semantic · all-indo-e5-small-v4,S07,santai,1,0.3609,27.7,fitur-autoaudit.md :: AI Chatbot untuk customer service
+semantic · all-indo-e5-small-v4,S08,santai,1,0.3097,26.0,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+semantic · all-indo-e5-small-v4,S09,santai,1,0.4547,24.2,daftar-harga.csv :: Baris 17-21
+semantic · all-indo-e5-small-v4,S10,santai,1,0.2742,23.6,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+semantic · all-indo-e5-small-v4,L01,luar_kb,,0.6539,29.3,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+semantic · all-indo-e5-small-v4,L02,luar_kb,,0.5278,24.0,keamanan-dan-ketentuan.md :: Standar keamanan
+semantic · all-indo-e5-small-v4,L03,luar_kb,,0.2387,22.7,daftar-harga.csv :: Baris 21-23
+semantic · all-indo-e5-small-v4,L04,luar_kb,,0.2204,22.6,daftar-harga.csv :: Baris 1-5
+semantic · all-indo-e5-small-v4,L05,luar_kb,,0.6025,23.1,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+semantic · all-indo-e5-small-v4,L06,luar_kb,,0.4582,21.5,profil-autoaudit.md :: Tentang AutoAudit
+semantic · all-indo-e5-small-v4,L07,luar_kb,,0.1659,21.8,daftar-harga.csv :: Baris 21-23
+semantic · all-indo-e5-small-v4,L08,luar_kb,,0.3767,22.6,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+hybrid · all-indo-e5-small-v4,P01,persis,,0.4780,25.3,fitur-autoaudit.md :: AI Chatbot untuk customer service
+hybrid · all-indo-e5-small-v4,P02,persis,1,0.4120,23.9,daftar-harga.csv :: Baris 1-5
+hybrid · all-indo-e5-small-v4,P03,persis,1,0.5827,28.9,daftar-harga.csv :: Baris 5-9
+hybrid · all-indo-e5-small-v4,P04,persis,1,0.5139,25.4,daftar-harga.csv :: Baris 17-21
+hybrid · all-indo-e5-small-v4,P05,persis,2,0.3475,25.5,daftar-harga.csv :: Baris 13-17
+hybrid · all-indo-e5-small-v4,P06,persis,1,0.5640,21.8,daftar-harga.csv :: Baris 9-13
+hybrid · all-indo-e5-small-v4,P07,persis,1,0.6335,22.8,fitur-autoaudit.md :: Automatic Notification
+hybrid · all-indo-e5-small-v4,P08,persis,1,0.6669,21.9,platform-dan-koneksi.md :: WhatsApp Coexistence (Meta)
+hybrid · all-indo-e5-small-v4,P09,persis,1,0.7038,22.0,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+hybrid · all-indo-e5-small-v4,P10,persis,,0.6830,22.9,fitur-autoaudit.md :: WhatsApp Business Manager
+hybrid · all-indo-e5-small-v4,F01,parafrase,,0.2990,25.2,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+hybrid · all-indo-e5-small-v4,F02,parafrase,1,0.3240,23.5,katalog-produk.csv :: Baris 1-5
+hybrid · all-indo-e5-small-v4,F03,parafrase,1,0.5270,22.9,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · all-indo-e5-small-v4,F04,parafrase,1,0.5032,25.0,keamanan-dan-ketentuan.md :: Perlindungan data dan NDA
+hybrid · all-indo-e5-small-v4,F05,parafrase,1,0.6665,25.4,keamanan-dan-ketentuan.md :: Kontrol akses data
+hybrid · all-indo-e5-small-v4,F06,parafrase,5,0.7107,23.8,profil-autoaudit.md :: Fungsi utama AutoAudit
+hybrid · all-indo-e5-small-v4,F07,parafrase,1,0.6275,22.6,fitur-autoaudit.md :: Automatic Report
+hybrid · all-indo-e5-small-v4,F08,parafrase,1,0.6522,25.1,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+hybrid · all-indo-e5-small-v4,F09,parafrase,1,0.7443,22.1,profil-autoaudit.md :: Klien AutoAudit
+hybrid · all-indo-e5-small-v4,F10,parafrase,1,0.6111,24.2,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+hybrid · all-indo-e5-small-v4,F11,parafrase,1,0.4827,24.1,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+hybrid · all-indo-e5-small-v4,F12,parafrase,1,0.3830,22.5,profil-autoaudit.md :: Fungsi utama AutoAudit
+hybrid · all-indo-e5-small-v4,S01,santai,4,0.3625,22.5,daftar-harga.csv :: Baris 17-21
+hybrid · all-indo-e5-small-v4,S02,santai,1,0.4398,23.4,daftar-harga.csv :: Baris 5-9
+hybrid · all-indo-e5-small-v4,S03,santai,1,0.2976,23.0,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · all-indo-e5-small-v4,S04,santai,3,0.3701,27.2,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+hybrid · all-indo-e5-small-v4,S05,santai,1,0.3641,29.5,platform-dan-koneksi.md :: Telegram
+hybrid · all-indo-e5-small-v4,S06,santai,1,0.3424,22.6,platform-dan-koneksi.md :: Notifikasi Continuous Audit: WhatsApp Official vs Telegram
+hybrid · all-indo-e5-small-v4,S07,santai,1,0.3609,27.1,fitur-autoaudit.md :: AI Chatbot untuk customer service
+hybrid · all-indo-e5-small-v4,S08,santai,1,0.3097,26.2,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+hybrid · all-indo-e5-small-v4,S09,santai,1,0.4547,21.9,daftar-harga.csv :: Baris 17-21
+hybrid · all-indo-e5-small-v4,S10,santai,1,0.2742,21.3,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+hybrid · all-indo-e5-small-v4,L01,luar_kb,,0.6539,21.5,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+hybrid · all-indo-e5-small-v4,L02,luar_kb,,0.4928,23.9,profil-autoaudit.md :: Tentang AutoAudit
+hybrid · all-indo-e5-small-v4,L03,luar_kb,,0.2193,26.3,daftar-harga.csv :: Baris 5-9
+hybrid · all-indo-e5-small-v4,L04,luar_kb,,0.2204,23.5,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+hybrid · all-indo-e5-small-v4,L05,luar_kb,,0.6025,23.3,fitur-autoaudit.md :: Automatic Report
+hybrid · all-indo-e5-small-v4,L06,luar_kb,,0.4582,22.9,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · all-indo-e5-small-v4,L07,luar_kb,,0.1043,21.8,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+hybrid · all-indo-e5-small-v4,L08,luar_kb,,0.3767,24.1,daftar-harga.csv :: Baris 17-21
+semantic · indo-sentence-bert-base,P01,persis,1,0.5667,37.6,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,P02,persis,1,0.5166,35.8,daftar-harga.csv :: Baris 1-5
+semantic · indo-sentence-bert-base,P03,persis,1,0.5514,35.2,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,P04,persis,2,0.3094,34.8,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,P05,persis,3,0.4126,34.8,katalog-produk.csv :: Baris 1-5
+semantic · indo-sentence-bert-base,P06,persis,2,0.5709,37.9,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,P07,persis,1,0.4087,34.8,fitur-autoaudit.md :: Automatic Notification
+semantic · indo-sentence-bert-base,P08,persis,,0.4255,34.2,fitur-autoaudit.md :: WhatsApp Business Manager
+semantic · indo-sentence-bert-base,P09,persis,1,0.5648,35.4,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+semantic · indo-sentence-bert-base,P10,persis,4,0.5687,37.2,fitur-autoaudit.md :: WhatsApp Business Manager
+semantic · indo-sentence-bert-base,F01,parafrase,1,0.4483,34.5,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,F02,parafrase,,0.4158,34.9,daftar-harga.csv :: Baris 1-5
+semantic · indo-sentence-bert-base,F03,parafrase,1,0.4376,36.8,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · indo-sentence-bert-base,F04,parafrase,3,0.4811,38.7,fitur-autoaudit.md :: AI Chatbot untuk customer service
+semantic · indo-sentence-bert-base,F05,parafrase,1,0.5570,38.3,keamanan-dan-ketentuan.md :: Kontrol akses data
+semantic · indo-sentence-bert-base,F06,parafrase,,0.6131,38.6,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · indo-sentence-bert-base,F07,parafrase,1,0.5124,36.5,fitur-autoaudit.md :: Automatic Report
+semantic · indo-sentence-bert-base,F08,parafrase,3,0.5180,38.3,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+semantic · indo-sentence-bert-base,F09,parafrase,1,0.5699,35.0,profil-autoaudit.md :: Klien AutoAudit
+semantic · indo-sentence-bert-base,F10,parafrase,2,0.5054,35.3,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · indo-sentence-bert-base,F11,parafrase,,0.5779,35.8,platform-dan-koneksi.md :: WhatsApp Business API (Meta)
+semantic · indo-sentence-bert-base,F12,parafrase,1,0.4739,34.4,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · indo-sentence-bert-base,S01,santai,2,0.4997,34.3,daftar-harga.csv :: Baris 13-17
+semantic · indo-sentence-bert-base,S02,santai,1,0.4931,35.3,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,S03,santai,1,0.3839,34.4,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · indo-sentence-bert-base,S04,santai,,0.4978,36.5,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+semantic · indo-sentence-bert-base,S05,santai,1,0.5615,37.7,platform-dan-koneksi.md :: Notifikasi Continuous Audit: WhatsApp Official vs Telegram
+semantic · indo-sentence-bert-base,S06,santai,1,0.3929,36.8,daftar-harga.csv :: Baris 21-23
+semantic · indo-sentence-bert-base,S07,santai,1,0.3887,37.8,fitur-autoaudit.md :: AI Chatbot untuk customer service
+semantic · indo-sentence-bert-base,S08,santai,1,0.3059,33.4,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+semantic · indo-sentence-bert-base,S09,santai,2,0.2489,36.1,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,S10,santai,2,0.3877,34.0,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+semantic · indo-sentence-bert-base,L01,luar_kb,,0.6007,33.7,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+semantic · indo-sentence-bert-base,L02,luar_kb,,0.3231,34.4,profil-autoaudit.md :: Tentang AutoAudit
+semantic · indo-sentence-bert-base,L03,luar_kb,,0.2153,36.8,daftar-harga.csv :: Baris 13-17
+semantic · indo-sentence-bert-base,L04,luar_kb,,0.3231,33.6,daftar-harga.csv :: Baris 5-9
+semantic · indo-sentence-bert-base,L05,luar_kb,,0.4587,35.8,profil-autoaudit.md :: Tentang AutoAudit
+semantic · indo-sentence-bert-base,L06,luar_kb,,0.4162,34.9,profil-autoaudit.md :: Tentang AutoAudit
+semantic · indo-sentence-bert-base,L07,luar_kb,,0.3336,36.9,fitur-autoaudit.md :: Otomatisasi pekerjaan berulang (Premium Feature)
+semantic · indo-sentence-bert-base,L08,luar_kb,,0.5319,36.8,daftar-harga.csv :: Baris 5-9
+hybrid · indo-sentence-bert-base,P01,persis,1,0.5667,42.0,daftar-harga.csv :: Baris 5-9
+hybrid · indo-sentence-bert-base,P02,persis,1,0.5166,35.4,daftar-harga.csv :: Baris 1-5
+hybrid · indo-sentence-bert-base,P03,persis,1,0.5514,48.9,daftar-harga.csv :: Baris 5-9
+hybrid · indo-sentence-bert-base,P04,persis,1,0.3018,36.4,daftar-harga.csv :: Baris 17-21
+hybrid · indo-sentence-bert-base,P05,persis,2,0.4126,34.3,katalog-produk.csv :: Baris 1-5
+hybrid · indo-sentence-bert-base,P06,persis,1,0.5709,42.7,daftar-harga.csv :: Baris 9-13
+hybrid · indo-sentence-bert-base,P07,persis,1,0.4087,36.8,fitur-autoaudit.md :: Automatic Notification
+hybrid · indo-sentence-bert-base,P08,persis,3,0.4255,34.3,fitur-autoaudit.md :: WhatsApp Business Manager
+hybrid · indo-sentence-bert-base,P09,persis,1,0.5648,34.4,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+hybrid · indo-sentence-bert-base,P10,persis,2,0.5687,35.5,fitur-autoaudit.md :: WhatsApp Business Manager
+hybrid · indo-sentence-bert-base,F01,parafrase,4,0.4245,34.9,daftar-harga.csv :: Baris 13-17
+hybrid · indo-sentence-bert-base,F02,parafrase,3,0.4158,34.8,daftar-harga.csv :: Baris 1-5
+hybrid · indo-sentence-bert-base,F03,parafrase,1,0.4376,34.2,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · indo-sentence-bert-base,F04,parafrase,1,0.4811,36.6,keamanan-dan-ketentuan.md :: Perlindungan data dan NDA
+hybrid · indo-sentence-bert-base,F05,parafrase,1,0.5570,37.9,keamanan-dan-ketentuan.md :: Kontrol akses data
+hybrid · indo-sentence-bert-base,F06,parafrase,,0.6131,36.1,profil-autoaudit.md :: Fungsi utama AutoAudit
+hybrid · indo-sentence-bert-base,F07,parafrase,1,0.5124,35.5,fitur-autoaudit.md :: Automatic Report
+hybrid · indo-sentence-bert-base,F08,parafrase,1,0.5180,38.9,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+hybrid · indo-sentence-bert-base,F09,parafrase,1,0.5699,36.0,profil-autoaudit.md :: Klien AutoAudit
+hybrid · indo-sentence-bert-base,F10,parafrase,1,0.4846,36.2,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+hybrid · indo-sentence-bert-base,F11,parafrase,2,0.5779,37.8,platform-dan-koneksi.md :: Notifikasi Continuous Audit: WhatsApp Official vs Telegram
+hybrid · indo-sentence-bert-base,F12,parafrase,1,0.4739,34.9,profil-autoaudit.md :: Fungsi utama AutoAudit
+hybrid · indo-sentence-bert-base,S01,santai,3,0.4997,33.8,daftar-harga.csv :: Baris 13-17
+hybrid · indo-sentence-bert-base,S02,santai,1,0.4931,33.8,daftar-harga.csv :: Baris 5-9
+hybrid · indo-sentence-bert-base,S03,santai,1,0.3839,34.4,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · indo-sentence-bert-base,S04,santai,4,0.4978,34.2,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+hybrid · indo-sentence-bert-base,S05,santai,1,0.5615,36.9,platform-dan-koneksi.md :: Notifikasi Continuous Audit: WhatsApp Official vs Telegram
+hybrid · indo-sentence-bert-base,S06,santai,1,0.3929,39.3,daftar-harga.csv :: Baris 21-23
+hybrid · indo-sentence-bert-base,S07,santai,1,0.3887,39.9,fitur-autoaudit.md :: AI Chatbot untuk customer service
+hybrid · indo-sentence-bert-base,S08,santai,1,0.3059,35.3,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+hybrid · indo-sentence-bert-base,S09,santai,1,0.2463,35.1,daftar-harga.csv :: Baris 17-21
+hybrid · indo-sentence-bert-base,S10,santai,1,0.3771,35.3,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+hybrid · indo-sentence-bert-base,L01,luar_kb,,0.5508,34.6,keamanan-dan-ketentuan.md :: Standar keamanan
+hybrid · indo-sentence-bert-base,L02,luar_kb,,0.3231,34.3,profil-autoaudit.md :: Tentang AutoAudit
+hybrid · indo-sentence-bert-base,L03,luar_kb,,0.2153,36.0,daftar-harga.csv :: Baris 1-5
+hybrid · indo-sentence-bert-base,L04,luar_kb,,0.3231,34.7,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+hybrid · indo-sentence-bert-base,L05,luar_kb,,0.4587,37.6,fitur-autoaudit.md :: Automatic Report
+hybrid · indo-sentence-bert-base,L06,luar_kb,,0.4162,36.8,profil-autoaudit.md :: Tentang AutoAudit
+hybrid · indo-sentence-bert-base,L07,luar_kb,,0.3333,35.2,fitur-autoaudit.md :: Automatic Report
+hybrid · indo-sentence-bert-base,L08,luar_kb,,0.5319,36.7,daftar-harga.csv :: Baris 17-21
+semantic · multilingual-e5-small,P01,persis,2,0.8551,22.8,fitur-autoaudit.md :: AI Chatbot untuk customer service
+semantic · multilingual-e5-small,P02,persis,1,0.8478,22.6,daftar-harga.csv :: Baris 1-5
+semantic · multilingual-e5-small,P03,persis,1,0.8803,23.5,daftar-harga.csv :: Baris 5-9
+semantic · multilingual-e5-small,P04,persis,1,0.8409,22.4,daftar-harga.csv :: Baris 17-21
+semantic · multilingual-e5-small,P05,persis,1,0.8150,23.0,katalog-produk.csv :: Baris 5-9
+semantic · multilingual-e5-small,P06,persis,1,0.8748,22.2,daftar-harga.csv :: Baris 9-13
+semantic · multilingual-e5-small,P07,persis,1,0.8665,22.4,fitur-autoaudit.md :: Automatic Notification
+semantic · multilingual-e5-small,P08,persis,1,0.8711,21.6,platform-dan-koneksi.md :: WhatsApp Coexistence (Meta)
+semantic · multilingual-e5-small,P09,persis,1,0.8901,21.7,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+semantic · multilingual-e5-small,P10,persis,4,0.8973,23.4,fitur-autoaudit.md :: WhatsApp Business Manager
+semantic · multilingual-e5-small,F01,parafrase,2,0.8142,22.3,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+semantic · multilingual-e5-small,F02,parafrase,2,0.8332,21.8,daftar-harga.csv :: Baris 1-5
+semantic · multilingual-e5-small,F03,parafrase,1,0.8660,22.9,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · multilingual-e5-small,F04,parafrase,1,0.8552,23.7,keamanan-dan-ketentuan.md :: Perlindungan data dan NDA
+semantic · multilingual-e5-small,F05,parafrase,1,0.8884,23.0,keamanan-dan-ketentuan.md :: Kontrol akses data
+semantic · multilingual-e5-small,F06,parafrase,,0.9222,23.3,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · multilingual-e5-small,F07,parafrase,1,0.8854,22.4,fitur-autoaudit.md :: Automatic Report
+semantic · multilingual-e5-small,F08,parafrase,1,0.8877,25.5,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+semantic · multilingual-e5-small,F09,parafrase,2,0.9024,23.6,profil-autoaudit.md :: Tentang AutoAudit
+semantic · multilingual-e5-small,F10,parafrase,1,0.8849,22.2,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+semantic · multilingual-e5-small,F11,parafrase,1,0.8512,24.8,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+semantic · multilingual-e5-small,F12,parafrase,1,0.8384,24.1,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · multilingual-e5-small,S01,santai,1,0.8323,22.2,daftar-harga.csv :: Baris 1-5
+semantic · multilingual-e5-small,S02,santai,1,0.8644,23.0,daftar-harga.csv :: Baris 5-9
+semantic · multilingual-e5-small,S03,santai,1,0.8639,21.8,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · multilingual-e5-small,S04,santai,2,0.8480,22.6,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+semantic · multilingual-e5-small,S05,santai,1,0.8627,21.7,platform-dan-koneksi.md :: Telegram
+semantic · multilingual-e5-small,S06,santai,1,0.8388,23.4,platform-dan-koneksi.md :: Notifikasi Continuous Audit: WhatsApp Official vs Telegram
+semantic · multilingual-e5-small,S07,santai,1,0.8602,27.3,fitur-autoaudit.md :: AI Chatbot untuk customer service
+semantic · multilingual-e5-small,S08,santai,1,0.8448,24.8,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+semantic · multilingual-e5-small,S09,santai,1,0.8333,21.7,daftar-harga.csv :: Baris 17-21
+semantic · multilingual-e5-small,S10,santai,2,0.8340,25.1,fitur-autoaudit.md :: Otomatisasi pekerjaan berulang (Premium Feature)
+semantic · multilingual-e5-small,L01,luar_kb,,0.8767,28.8,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+semantic · multilingual-e5-small,L02,luar_kb,,0.8534,22.5,profil-autoaudit.md :: Fungsi utama AutoAudit
+semantic · multilingual-e5-small,L03,luar_kb,,0.7882,30.8,daftar-harga.csv :: Baris 1-5
+semantic · multilingual-e5-small,L04,luar_kb,,0.8034,24.1,daftar-harga.csv :: Baris 1-5
+semantic · multilingual-e5-small,L05,luar_kb,,0.8672,31.6,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+semantic · multilingual-e5-small,L06,luar_kb,,0.8169,29.8,keamanan-dan-ketentuan.md :: Cara pembayaran
+semantic · multilingual-e5-small,L07,luar_kb,,0.7802,33.5,fitur-autoaudit.md :: Otomatisasi pekerjaan berulang (Premium Feature)
+semantic · multilingual-e5-small,L08,luar_kb,,0.8297,30.2,daftar-harga.csv :: Baris 1-5
+hybrid · multilingual-e5-small,P01,persis,1,0.8551,24.3,daftar-harga.csv :: Baris 5-9
+hybrid · multilingual-e5-small,P02,persis,1,0.8478,23.4,daftar-harga.csv :: Baris 1-5
+hybrid · multilingual-e5-small,P03,persis,1,0.8803,30.8,daftar-harga.csv :: Baris 5-9
+hybrid · multilingual-e5-small,P04,persis,1,0.8409,21.1,daftar-harga.csv :: Baris 17-21
+hybrid · multilingual-e5-small,P05,persis,2,0.8150,24.2,daftar-harga.csv :: Baris 13-17
+hybrid · multilingual-e5-small,P06,persis,1,0.8748,24.0,daftar-harga.csv :: Baris 9-13
+hybrid · multilingual-e5-small,P07,persis,1,0.8665,22.2,fitur-autoaudit.md :: Automatic Notification
+hybrid · multilingual-e5-small,P08,persis,1,0.8711,22.0,platform-dan-koneksi.md :: WhatsApp Coexistence (Meta)
+hybrid · multilingual-e5-small,P09,persis,1,0.8901,23.0,fitur-autoaudit.md :: Deep Pull WhatsApp Data
+hybrid · multilingual-e5-small,P10,persis,2,0.8973,22.7,fitur-autoaudit.md :: WhatsApp Business Manager
+hybrid · multilingual-e5-small,F01,parafrase,4,0.8142,23.0,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+hybrid · multilingual-e5-small,F02,parafrase,1,0.8332,25.3,katalog-produk.csv :: Baris 1-5
+hybrid · multilingual-e5-small,F03,parafrase,1,0.8660,24.3,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · multilingual-e5-small,F04,parafrase,1,0.8552,24.3,keamanan-dan-ketentuan.md :: Perlindungan data dan NDA
+hybrid · multilingual-e5-small,F05,parafrase,1,0.8884,25.5,keamanan-dan-ketentuan.md :: Kontrol akses data
+hybrid · multilingual-e5-small,F06,parafrase,,0.9222,26.7,profil-autoaudit.md :: Fungsi utama AutoAudit
+hybrid · multilingual-e5-small,F07,parafrase,1,0.8854,24.2,fitur-autoaudit.md :: Automatic Report
+hybrid · multilingual-e5-small,F08,parafrase,1,0.8877,27.9,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+hybrid · multilingual-e5-small,F09,parafrase,2,0.9024,25.6,profil-autoaudit.md :: Tentang AutoAudit
+hybrid · multilingual-e5-small,F10,parafrase,1,0.8849,31.3,profil-autoaudit.md :: Manfaat 2: Staff bekerja lebih bertanggung jawab
+hybrid · multilingual-e5-small,F11,parafrase,1,0.8512,30.2,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+hybrid · multilingual-e5-small,F12,parafrase,1,0.8384,25.6,profil-autoaudit.md :: Fungsi utama AutoAudit
+hybrid · multilingual-e5-small,S01,santai,4,0.8241,22.9,daftar-harga.csv :: Baris 13-17
+hybrid · multilingual-e5-small,S02,santai,1,0.8644,23.2,daftar-harga.csv :: Baris 5-9
+hybrid · multilingual-e5-small,S03,santai,1,0.8639,25.0,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · multilingual-e5-small,S04,santai,1,0.8480,23.8,keamanan-dan-ketentuan.md :: Kontrol akses data
+hybrid · multilingual-e5-small,S05,santai,1,0.8627,23.8,platform-dan-koneksi.md :: Telegram
+hybrid · multilingual-e5-small,S06,santai,1,0.8388,23.2,katalog-produk.csv :: Baris 13-15
+hybrid · multilingual-e5-small,S07,santai,1,0.8602,23.5,fitur-autoaudit.md :: AI Chatbot untuk customer service
+hybrid · multilingual-e5-small,S08,santai,1,0.8448,25.6,fitur-autoaudit.md :: AI-Native Dashboard (Premium Feature)
+hybrid · multilingual-e5-small,S09,santai,1,0.8333,30.8,daftar-harga.csv :: Baris 17-21
+hybrid · multilingual-e5-small,S10,santai,1,0.8323,25.3,keamanan-dan-ketentuan.md :: Aturan aman menggunakan AutoAudit
+hybrid · multilingual-e5-small,L01,luar_kb,,0.8767,24.5,fitur-autoaudit.md :: Integrasi dengan aplikasi lain (Premium Feature)
+hybrid · multilingual-e5-small,L02,luar_kb,,0.8531,27.1,profil-autoaudit.md :: Tentang AutoAudit
+hybrid · multilingual-e5-small,L03,luar_kb,,0.7882,27.0,daftar-harga.csv :: Baris 1-5
+hybrid · multilingual-e5-small,L04,luar_kb,,0.8034,24.5,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain
+hybrid · multilingual-e5-small,L05,luar_kb,,0.8672,28.5,profil-autoaudit.md :: Tentang AutoAudit
+hybrid · multilingual-e5-small,L06,luar_kb,,0.8169,25.8,keamanan-dan-ketentuan.md :: Cara pembayaran
+hybrid · multilingual-e5-small,L07,luar_kb,,0.7726,33.3,platform-dan-koneksi.md :: WhatsApp Business API (Meta)
+hybrid · multilingual-e5-small,L08,luar_kb,,0.8297,23.3,platform-dan-koneksi.md :: WhatsApp native Meta dibanding platform lain

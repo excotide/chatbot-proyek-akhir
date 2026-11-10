@@ -1,0 +1,24 @@
+kode_produk,varian,minimal_langganan,harga_rp,satuan,bonus,keterangan
+AA-REGULER,Reguler 3 Bulan,3 bulan,333000,per akun,Free 500.000 token,-
+AA-REGULER,Reguler 6 Bulan,6 bulan,250000,per akun,Free 1.500.000 token,Hemat 25%
+AA-REGULER,Reguler 12 Bulan,12 bulan,200000,per akun,Free 5.000.000 token,Hemat 40%
+AA-SUPER,Super Package 3 Bulan,3 bulan,450000,per akun,Free 500.000 token,-
+AA-SUPER,Super Package 6 Bulan,6 bulan,375000,per akun,Free 1.500.000 token,-
+AA-SUPER,Super Package 12 Bulan,12 bulan,300000,per akun,Free 5.000.000 token,-
+TOKEN-TOPUP,Top Up 5 Juta Token,-,270000,per paket,-,-
+TOKEN-TOPUP,Top Up 10 Juta Token,-,520000,per paket,-,-
+AUDIT-TIM,Audit 10 Nomor WhatsApp,-,5000000,per paket,-,-
+AUDIT-TIM,Audit 20 Nomor WhatsApp,-,9000000,per paket,-,Termasuk Evaluasi Score Benchmark
+SVC-REGULAR,Regular Plan,-,0,gratis,-,Otomatis termasuk di semua paket
+SVC-BLUE,Blue Package,-,1000000,per bulan,-,-
+SVC-PURPLE,Purple Package,-,3000000,per bulan,-,-
+SVC-RED,Red Package,-,5000000,per bulan,-,-
+AI-CHATBOT,AI Chatbot,-,1000000,mulai dari,-,-
+DEEP-PULL,Deep Pull WhatsApp Data,-,250000,biaya tambahan,-,Upgrade opsional
+EXTRA-STORAGE,Extra Storage 50GB,-,70000,per bulan,-,-
+EXTRA-STORAGE,Extra Storage 100GB,-,130000,per bulan,-,-
+EXTRA-STORAGE,Extra Storage 250GB,-,299000,per bulan,-,-
+WA-BIZ-MANAGER,Set-up dan Training WhatsApp Business Manager,-,7000000,sekali bayar,-,Add-on opsional
+NOTIF-WA,Notifikasi WhatsApp Official,-,470-730,per notifikasi,-,-
+NOTIF-TG,Notifikasi Telegram API,-,0,per notifikasi,-,Syarat dan ketentuan berlaku
+WA-BROADCAST,Official WhatsApp Broadcast,-,0,biaya AutoAudit,-,Kredit broadcast dibeli langsung ke Meta

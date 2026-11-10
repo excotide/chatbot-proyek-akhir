@@ -1,0 +1,41 @@
+id,jenis,pertanyaan,dokumen,kunci,catatan
+P01,persis,Berapa harga AutoAudit Super Package 12 bulan?,daftar-harga.csv,Super Package 12 Bulan,
+P02,persis,Harga Reguler 3 Bulan berapa?,daftar-harga.csv,Reguler 3 Bulan,
+P03,persis,Berapa harga Top Up 5 Juta Token?,daftar-harga.csv,Top Up 5 Juta Token,
+P04,persis,Berapa biaya Extra Storage 250GB?,daftar-harga.csv,Extra Storage 250GB,
+P05,persis,Apa saja fitur Purple Package?,katalog-produk.csv,SVC-PURPLE,
+P06,persis,Berapa harga Audit Package 20 nomor WhatsApp?,daftar-harga.csv,Audit 20 Nomor WhatsApp,
+P07,persis,Apa itu fitur Automatic Notification?,fitur-autoaudit.md,Automatic Notification,
+P08,persis,Apa itu WhatsApp Coexistence?,platform-dan-koneksi.md,WhatsApp Coexistence,
+P09,persis,Apa itu Deep Pull WhatsApp Data?,fitur-autoaudit.md|katalog-produk.csv,Deep Pull WhatsApp Data,
+P10,persis,Berapa biaya set-up WhatsApp Business Manager?,daftar-harga.csv,Set-up dan Training WhatsApp Business Manager,
+F01,parafrase,Berapa biaya langganan kalau komitmen setahun?,daftar-harga.csv,12 Bulan,
+F02,parafrase,Apa perbedaan paket Reguler dengan paket Super?,katalog-produk.csv,AA-SUPER,"perbedaan ada di fitur, bukan harga"
+F03,parafrase,Bagaimana cara melakukan pembayaran?,keamanan-dan-ketentuan.md,Cara pembayaran,
+F04,parafrase,Apakah percakapan pelanggan kami dipakai untuk melatih model AI?,keamanan-dan-ketentuan.md,Perlindungan data,
+F05,parafrase,Apakah tim AutoAudit bisa melihat data kami tanpa izin?,keamanan-dan-ketentuan.md,Kontrol akses data,
+F06,parafrase,Apakah AutoAudit bisa membaca percakapan di grup WhatsApp?,platform-dan-koneksi.md,WhatsApp Coexistence,"grup terbaca lewat Coexistence, tidak lewat Business API"
+F07,parafrase,Bisakah laporan dikirim otomatis setiap hari?,fitur-autoaudit.md,Automatic Report,
+F08,parafrase,Apakah AutoAudit bisa dihubungkan dengan sistem ERP seperti SAP atau Odoo?,fitur-autoaudit.md,Integrasi dengan aplikasi lain,
+F09,parafrase,Perusahaan apa saja yang sudah memakai AutoAudit?,profil-autoaudit.md,Klien AutoAudit,
+F10,parafrase,Bagaimana AutoAudit membantu memantau kecepatan respons admin?,profil-autoaudit.md,Manfaat 2,
+F11,parafrase,Apa yang harus dihindari agar nomor WhatsApp tidak diblokir?,keamanan-dan-ketentuan.md,Aturan aman,
+F12,parafrase,Kanal komunikasi apa saja yang bisa dianalisis?,profil-autoaudit.md,Fungsi utama,
+S01,santai,kak harga yg setaun brp ya,daftar-harga.csv,12 Bulan,
+S02,santai,topup token 10jt brp kak,daftar-harga.csv,Top Up 10 Juta Token,
+S03,santai,bayarnya transfer kemana min,keamanan-dan-ketentuan.md,Cara pembayaran,
+S04,santai,data chat aman ga sih,keamanan-dan-ketentuan.md,Perlindungan data|Kontrol akses data|Standar keamanan,
+S05,santai,bisa connect ke telegram ga,platform-dan-koneksi.md,Telegram,
+S06,santai,notif lewat tele bayar ga,platform-dan-koneksi.md|katalog-produk.csv|daftar-harga.csv,Notifikasi Continuous Audit|NOTIF-TG,
+S07,santai,chatbot AI nya mulai dr brp,daftar-harga.csv|fitur-autoaudit.md,AI-CHATBOT|AI Chatbot untuk customer service,
+S08,santai,ada dashboard nya ga kak,fitur-autoaudit.md,AI-Native Dashboard,
+S09,santai,storage nambah 100gb brp,daftar-harga.csv,Extra Storage 100GB,
+S10,santai,kl sering ganti hp aman ga,keamanan-dan-ketentuan.md,Aturan aman,
+L01,luar_kb,Ada aplikasi AutoAudit untuk iPhone?,-,-,tidak ada di KB
+L02,luar_kb,Kantor AutoAudit ada di kota mana?,-,-,tidak ada di KB
+L03,luar_kb,Apakah ada promo Harbolnas bulan ini?,-,-,tidak ada di KB
+L04,luar_kb,Berapa lama garansi uang kembali?,-,-,tidak ada di KB
+L05,luar_kb,Apakah AutoAudit bisa membuatkan website toko online?,-,-,tidak ada di KB
+L06,luar_kb,Siapa CEO PT Ordo Teknologi Karya?,-,-,tidak ada di KB
+L07,luar_kb,Jam berapa kantor buka hari Sabtu?,-,-,tidak ada di KB
+L08,luar_kb,Berapa harga lisensi on-premise untuk server sendiri?,-,-,tidak ada di KB

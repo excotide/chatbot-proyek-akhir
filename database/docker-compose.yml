@@ -1,0 +1,58 @@
+# Database untuk chatbot & CRM PA, plus dua database vektor pembanding.
+# Jalankan:  docker compose up -d   (dari folder ini)
+# Kredensial ada di .env (salin dari .env.example). Semua port hanya terbuka untuk laptop sendiri (127.0.0.1).
+#
+# Komparasi database vektor (arahan dosen): PostgreSQL + pgvector vs ChromaDB vs SurrealDB.
+# Ketiganya dijalankan sebagai server di Docker agar perbandingannya adil (sama-sama lewat jaringan lokal)
+# dan pemakaian RAM bisa diukur per container. Versi dikunci (bukan 'latest') agar hasil bisa diulang.
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.0-pg16
+    container_name: pa-postgres
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      TZ: Asia/Jakarta
+      PGTZ: Asia/Jakarta
+    ports:
+      # 5434 karena 5433 sudah dipakai PostgreSQL lain di laptop ini
+      - "127.0.0.1:5434:5432"
+    volumes:
+      # named volume: lebih aman dan cepat daripada folder Windows untuk data PostgreSQL
+      - pa_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  chroma:
+    image: chromadb/chroma:1.5.9
+    container_name: pa-chroma
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Jakarta
+      ANONYMIZED_TELEMETRY: "FALSE"
+    ports:
+      - "127.0.0.1:8001:8000"
+    volumes:
+      - pa_chroma:/data
+
+  surrealdb:
+    image: surrealdb/surrealdb:v3.2.6
+    container_name: pa-surrealdb
+    restart: unless-stopped
+    user: root  # agar bisa menulis ke named volume
+    env_file: .env  # SURREAL_USER dan SURREAL_PASS dibaca langsung oleh 'surreal start'
+    environment:
+      TZ: Asia/Jakarta
+    command: ["start", "--log", "info", "rocksdb:/data/srdb"]
+    ports:
+      - "127.0.0.1:8002:8000"
+    volumes:
+      - pa_surreal:/data
+
+volumes:
+  pa_pgdata:
+  pa_chroma:
+  pa_surreal:

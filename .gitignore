@@ -1,0 +1,10 @@
+# rahasia dan data lokal, jangan di-commit
+.env
+**/.env
+wa-gateway/data/
+__pycache__/
+.venv/
+backend/qr.png
+
+# cache model Hugging Face
+.cache/

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "backend-simulator",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-Command", "Set-Location backend; .\\.venv\\Scripts\\python.exe -m uvicorn app.main:app --port 8000"],
+      "port": 8000
+    }
+  ]
+}
